@@ -26,7 +26,12 @@ class LTSimpleTestOneVC: UIViewController, LTTableViewProtocal {
          let H: CGFloat = glt_iphoneX ? (view.bounds.height - 64 - 24 - 34) : view.bounds.height - 64
          let tableView = tableViewConfig(CGRect(x: 0, y:0, width: view.bounds.width, height: H), self, self, nil)
          */
-        let H: CGFloat = glt_iphoneX ? (view.bounds.height - 44 - 64 - 24 - 34) : view.bounds.height - 64 - 44
+        var H: CGFloat = 0; //glt_iphoneX ? (view.bounds.height - 44 - 64 - 24 - 34) : (view.bounds.height - 64 - 44)
+        if glt_iphoneX {
+            H = view.bounds.height - 44 - 64 - 24 - 34
+        } else {
+            H = view.bounds.height - 64 - 44
+        }
         let tableView = tableViewConfig(CGRect(x: 0, y:44, width: view.bounds.width, height: H), self, self, nil)
         return tableView
     }()
